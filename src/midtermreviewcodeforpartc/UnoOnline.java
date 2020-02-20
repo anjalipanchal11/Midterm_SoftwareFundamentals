@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class UnoOnline {
 
     private User users[] = new User[100];//room for 100 online players!
+    ValidateUserName userValid = new ValidateUserName();
 
     /**
      * Main method with call to private run method, to encapsulate our main
@@ -45,9 +46,12 @@ public class UnoOnline {
         while (!validUserName) {
             System.out.println("please enter your desired user name:");
             userName = sc.nextLine();
-            if (userName.length() == 0) {
-                validUserName = UserNameValidator(userName);
-            } else {
+            if(userName.length() == 0)
+            {
+                userValid.userValidate(userName);
+            }
+            else
+            {
                 validUserName = true;
             }
         }
